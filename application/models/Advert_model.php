@@ -8,8 +8,9 @@ class Advert_model extends CI_Model
      * 获取幻灯片广告
      * @param unknown $flag
      */
-    public function findBySourceState($source_state)
+    public function findBySourceState($source_state,$f='*')
     {
+    	$this->db->select($f);
         $this->db->where('source_state', $source_state);
         $this->db->where('flag',1);
         $this->db->order_by('sort','asc');
