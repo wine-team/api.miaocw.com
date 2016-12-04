@@ -74,16 +74,16 @@ class MW_Controller extends CI_Controller
      * @param unknown $error
      * @param string $url
      */
-    public function jsonMessage($error, $url='')
+    public function jsonMessage($error, $content='')
     {
     	if (!empty($error)) {
     		if (is_array($error)) {
-    			$json = array('status'=>false, 'messages'=>implode('\\n', $error));
+    			$json = array('status'=>false, 'content'=>implode('\\n', $error));
     		} else {
-    			$json = array('status'=>false, 'messages'=>$error);
+    			$json = array('status'=>false, 'content'=>$error);
     		}
     	} else {
-    		$json = array('status'=>true, 'messages'=>$url);
+    		$json = array('status'=>true, 'content'=>$content);
     	}
     	echo json_encode($json);exit;
     }

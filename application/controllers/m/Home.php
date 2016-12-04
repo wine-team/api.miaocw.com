@@ -11,6 +11,11 @@ class Home extends MW_Controller {
 	 */
 	public function advert() {
 		
-		
+		$result = $this->advert->findBySourceState(4);
+		if ($result->num_rows()<=0) {
+			$this->jsonMessage('暂无幻灯片');
+		}
+		$advert = $result->result();
+		$this->jsonMessage('',$advert);
 	}
 }
